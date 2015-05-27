@@ -1,0 +1,61 @@
+'\" t
+.\"***************************************************************************
+.\" Copyright (C) 1989-2015 Juergen Pfeifer                                  *
+.\"                                                                          *
+.\" Permission is hereby granted, free of charge, to any person obtaining a  *
+.\" copy of this software and associated documentation files (the            *
+.\" "Software"), to deal in the Software without restriction, including      *
+.\" without limitation the rights to use, copy, modify, merge, publish,      *
+.\" distribute, distribute with modifications, sublicense, and/or sell       *
+.\" copies of the Software, and to permit persons to whom the Software is    *
+.\" furnished to do so, subject to the following conditions:                 *
+.\"                                                                          *
+.\" The above copyright notice and this permission notice shall be included  *
+.\" in all copies or substantial portions of the Software.                   *
+.\"                                                                          *
+.\" THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS  *
+.\" OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF               *
+.\" MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.   *
+.\" IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,   *
+.\" DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR    *
+.\" OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR    *
+.\" THE USE OR OTHER DEALINGS IN THE SOFTWARE.                               *
+.\"                                                                          *
+.\" Except as contained in this notice, the name(s) of the above copyright   *
+.\" holders shall not be used in advertising or otherwise to promote the     *
+.\" sale, use or other dealings in this Software without prior written       *
+.\" authorization.                                                           *
+.\"***************************************************************************
+.\"
+.TH dtou 1 ""
+.SH NAME
+\fBdtou, dos2unix, utod, unix2dos\fR \- DOS <-> Unix CRLF conversion tools
+.SH SYNOPSIS
+\fBdtou [filename ...]\fR
+.br
+\fBdos2unix [filename ...]\fR
+.br
+\fButod [filename ...]\fR
+.br
+\fBunix2dos [filename ...]\fR
+.br
+.SH DESCRIPTION
+These tools deal with the different line-ending conventions on Windows and Unix.
+When one of these commands is called without an argument, it acts as a filter,
+reading from standard input, do the transformation, and write the result to standard output.
+.PP
+If one or more arguments are given, they are treated as filenames and these files
+are converted in place one after another.
+.PP
+\fBdtou\fR and its synonym \fBdos2unix\fR converts the DOS/Windows input with line-ending CRLF
+into Unix streams with line-ending LF. The tools also remove a BOM header if one exists.
+.PP
+\fButod\fR and its synonym \fBunix2dos\fR converts the Unix input with line-ending LF
+into DOS/Windows streams with line-ending CRLF.
+.PP
+.SH RETURN VALUE
+The commands exit with exitcode 0 if no error occured. Any other value indicates an error. 
+.SH PORTABILITY
+These scripts should run on almost all POSIX systems. 
+.SH AUTHORS
+Juergen Pfeifer.
